@@ -1,17 +1,26 @@
 import 'package:flutter/material.dart';
 
-class MyWidget extends StatefulWidget {
-  const MyWidget({super.key});
+class Login extends StatefulWidget {
+  const Login({super.key});
 
   @override
-  State<MyWidget> createState() => _MyWidgetState();
+  State<Login> createState() => _LoginState();
 }
 
-class _MyWidgetState extends State<MyWidget> {
+class _LoginState extends State<Login> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Flutter Demo', 
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text('Login'),
+        ),
+      )  
     );
+
   }
 }
