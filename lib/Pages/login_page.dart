@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:instaclone1/services/auth/auth_service.dart';
 import '../components/my_button.dart';
 import '../components/my_textfield.dart';
 
@@ -14,6 +15,27 @@ class LoginPage extends StatelessWidget {
     super.key,
     required this.onTap,
   });
+
+  // login method
+  void login(BuildContext context) async {
+    // auth service
+    final authService = AuthService();
+
+    // try login
+    try {
+      await authService.signInWithEmailPassword(
+          _emailController.text, _pwController.text);
+    }
+    // catch any errors
+    catch (e) {
+      showDialog(
+        context: context,
+        builder: (context) => AlertDialog(
+          title: Text(e.toString()),
+        ),
+      );
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -64,7 +86,7 @@ class LoginPage extends StatelessWidget {
             // login button
             MyButton(
               text: "Login",
-              onTap: () {},
+              onTap: () => login(context),
             ),
 
             const SizedBox(height: 25),

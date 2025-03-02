@@ -2,7 +2,7 @@
 
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:instaclone1/Pages/LogIn.dart';
+import 'package:instaclone1/Pages/login_page.dart';
 import 'package:instaclone1/firebae_options.dart';
 import 'package:instaclone1/themes/theme.provider.dart';
 import 'package:provider/provider.dart';

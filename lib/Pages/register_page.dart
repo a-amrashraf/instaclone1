@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:instaclone1/services/auth/auth_service.dart';
 
 import '../components/my_button.dart';
 import '../components/my_textfield.dart';
@@ -17,6 +18,38 @@ class RegisterPage extends StatelessWidget {
     super.key,
     required this.onTap,
   });
+
+  void register(BuildContext context) {
+    // get auth service
+    final _auth = AuthService();
+
+    // password match -> create user
+    if (_pwController.text == _confirmpwController.text) {
+      try {
+        _auth.signUpWithEmailPassword(
+          _emailController.text,
+          _pwController.text,
+        );
+      } catch (e) {
+        showDialog(
+          context: context,
+          builder: (context) => AlertDialog(
+            title: Text(e.toString()),
+          ),
+        );
+      }
+    }
+    // passwords dont match -> tell user to fix
+
+    else {
+      showDialog(
+        context: context,
+        builder: (context) => const AlertDialog(
+          title: Text("Passwords don't match!"),
+        ),
+      );
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -85,7 +118,7 @@ class RegisterPage extends StatelessWidget {
             // login button
             MyButton(
               text: "Register",
-              onTap: () {},
+              onTap: () => register(context),
             ),
 
             const SizedBox(height: 25),
