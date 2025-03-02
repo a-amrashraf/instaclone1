@@ -15,6 +15,7 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
+  
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -35,7 +36,7 @@ class _MyAppState extends State<MyApp> {
               child: IconButton(
                 onPressed: () {
                   Navigator.of(newContext).push(
-                    MaterialPageRoute(builder: (context) => Login()),
+                    MaterialPageRoute(builder: (context) => const LoginScreen()),
                   );
                 },
                 icon: Icon(Icons.add),

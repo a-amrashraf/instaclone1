@@ -1,26 +1,31 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class Login extends StatefulWidget {
-  const Login({super.key});
-
+class LoginScreen extends StatefulWidget {
+  const LoginScreen({super.key});
+  
   @override
-  State<Login> createState() => _LoginState();
+  State<LoginScreen> createState() => _LoginScreenState();
 }
 
-class _LoginState extends State<Login> {
+class _LoginScreenState extends State<LoginScreen> {
+
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo', 
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text('Login'),
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Login Page'),
+        backgroundColor: Colors.deepPurple,
+        
         ),
-      )  
-    );
-
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text("Welcome to Instagram", style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),),
+          ]
+      ),
+        
+      ),); 
   }
-}
+  }
