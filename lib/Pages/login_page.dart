@@ -46,10 +46,9 @@ class LoginPage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             // logo
-            Icon(
-              Icons.message,
-              size: 60,
-              color: Theme.of(context).colorScheme.primary,
+            Image.asset(
+              'lib/images/instagram_logo2.png', // Correct path
+              height: 90, // Adjust size as needed
             ),
 
             const SizedBox(height: 25),
@@ -58,7 +57,7 @@ class LoginPage extends StatelessWidget {
             Text(
               "Welcome back, you've been missed!",
               style: TextStyle(
-                color: Theme.of(context).colorScheme.primary,
+                color: Theme.of(context).colorScheme.tertiary,
                 fontSize: 16,
               ),
             ),
@@ -96,17 +95,18 @@ class LoginPage extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  'Not a member? ',
+                  "Don't have an account? ",
                   style:
                       TextStyle(color: Theme.of(context).colorScheme.primary),
                 ),
                 GestureDetector(
                   onTap: onTap,
                   child: Text(
-                    'Register now',
+                    'Sign up',
                     style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        color: Theme.of(context).colorScheme.primary),
+                      fontWeight: FontWeight.bold,
+                      color: Colors.blue.shade600,
+                    ),
                   ),
                 ),
               ],
